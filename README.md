@@ -5,9 +5,9 @@ This project documents an end-to-end incident response scenario I carried out us
 ---
 
 ## 🛠 Preparation  
-- I set up and configured my lab environment with Velociraptors Client-Server deployment. 
+- I set up and configured my lab environment with Velociraptors Client-Server deployment.
 - I have a machine runnning Ubuntu server where Velociraptor is hosted.
-- Once set up and configured, I accessed the admin panel and deployed the client which is a virtual machine running Kali Linux.
+- Once set up and configured, I accessed the admin panel and deployed the client, which is a virtual machine running Kali Linux.
 - I captured screenshots of the Velociraptor admin panel and conneced client list to show the baseline state before any malicious activity.
 ![admindashboard](https://github.com/user-attachments/assets/50cd2fac-881e-423a-9e49-6e91e9893e24)
 ![clientsearch](https://github.com/user-attachments/assets/574f0ce8-91d6-446c-a205-a28fefa94c10)
@@ -19,8 +19,8 @@ This project documents an end-to-end incident response scenario I carried out us
 
 ## 🔎 Detection  
 - To simulate an attack, I used the [MITRE ATT&CK technique **T1546.004**](https://attack.mitre.org/techniques/T1546/004/) – persistence through malicious shell scripts.  
-
 - I executed a persistence mechanism that modified the client’s shell configuration.
+- The persistance "mechanism" purely servers as a proof of concept, no malware was created.
   <img width="1918" height="982" alt="malicious behavior" src="https://github.com/user-attachments/assets/93aaedf9-d92b-4b50-af9e-b04b79e6a957" />
  
 - From there, I ran an interrogation on the client to get some basic system information, then proceeded onto further analysis.
@@ -103,4 +103,7 @@ With this change in place, the client was safely unquarantined and restored to n
 ---
 
 ## 📚 Lessons Learned  
-This exercise reinforced the value of **visibility, speed, and repeatability** in incident response. Simulating a real-world ATT&CK technique with Velociraptor helped me practice the full lifecycle of response: from detection to containment, eradication, and recovery.  
+- Reinforced the importance of visibility, speed, and repeatability in incident response. 
+- Practiced the full incident response lifecycle by simulating a real-world MITRE ATT&CK technique with Velociraptor.
+- My next steps in a production environment would include establishing file integrity baselines to detect and prevent unauthorized modifications
+  so an event like this doesn't happen again.
