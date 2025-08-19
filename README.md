@@ -36,7 +36,7 @@ This project documents an end-to-end incident response scenario I carried out us
 ![artifact result](https://github.com/user-attachments/assets/ea372dc3-63cb-44db-af77-99712dd326af)
 
 
--I was then able to confirm the attempts to establish persistence through the modification of the '.zshrc' file.
+- I was then able to confirm the attempts to establish persistence through the modification of the '.zshrc' file.
 
 
 ---
@@ -62,7 +62,7 @@ This project documents an end-to-end incident response scenario I carried out us
 ---
 
 ## 🧹 Eradication  
-To clean up the persistence mechanism, I removed the malicious entry from `.zshrc` using Velociraptor's shell functionality  
+- To clean up the persistence mechanism, I removed the malicious entry from `.zshrc` using Velociraptor's shell functionality.  
 
 ```bash
 sed -i '/touch \/tmp\/malware/d' /home/t0rment/.zshrc
@@ -70,19 +70,33 @@ sed -i '/touch \/tmp\/malware/d' /home/t0rment/.zshrc
 
 
 ![malware removal commands](https://github.com/user-attachments/assets/50e15e23-78df-4095-a6e5-068b62fdac3c)
-Then I deleted any leftover files created by the malware:  
+- Then I deleted any leftover files created by the malware.  
 ```bash
 rm /tmp/malware
 ```
+<img width="851" height="177" alt="malware removal " src="https://github.com/user-attachments/assets/5fd822f1-90d1-4882-82aa-4cbc7653ee3a" />
+
+
+- To verify the removal of the persistence mechanims, I ran the previously used cat command on the file again
+  and it showed that the mechanisms were removed.
+![malware removed](https://github.com/user-attachments/assets/32027c21-3580-43bb-84f0-4c2a99a85c12)
 
 ---
 
 ## 🔄 Recovery  
-To harden the system and prevent further modifications to the file, I used Velociraptor to apply the immutable attribute:  
+- To harden the system and prevent further modifications to the file, I applied the mitigation technique recommended by the 
+  MITRE ATT&CK framework, to restrict file and directory permissions.
+- Mitigation ID: M1022
 
-\`\`\`bash
+- Still using Velociraptors shell functionaliy, I ran the following command to make the file immutable to prevent
+  unauthorized modifications from being made to the file.
+```bash
 chattr +i /home/t0rment/.zshrc
-\`\`\`
+```
+![permision removal command](https://github.com/user-attachments/assets/376647b8-ac40-4d0d-a568-417d47e162f0)
+- To verify that changes were made, I went onto the client virtual machine and tried to make file changes to the .zshrc file
+  and was unsuccessful in doing so. This verifies that the appropriate changes were made.
+<img width="853" height="628" alt="removed permissions" src="https://github.com/user-attachments/assets/cf49889e-f8e4-4f5e-85dd-8cf8754fdd20" />
 
 With this change in place, the client was safely unquarantined and restored to normal operation.
 
