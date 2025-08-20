@@ -32,7 +32,7 @@ a simulated malicious persistence attempt.
 
 ## 📊 Analysis  
 - Since I knew the persistence technique targeted shell configs, I searched for Velociraptor artifacts that would help me find the exact commands that were executed to establish persistence.
-- Using Velociraptor, I ran the **Linux.Sys.BashHistory** artifact to collect shell history from the client.
+- I ran the **Linux.Sys.BashHistory** artifact to collect shell history from the client.
 - This revealed the commands used to establish persistence.  
 ![Capture](https://github.com/user-attachments/assets/525079ce-10fa-49a9-99c5-5eed23ef8a30)
 ![artifact result](https://github.com/user-attachments/assets/ea372dc3-63cb-44db-af77-99712dd326af)
