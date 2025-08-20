@@ -21,7 +21,7 @@ a simulated malicious persistence attempt.
 ## 🔎 Detection  
 - To simulate an attack, I used the [MITRE ATT&CK technique **T1546.004**](https://attack.mitre.org/techniques/T1546/004/) – persistence through malicious shell scripts.  
 - Created a persistence mechanism by modifying the client;s shell configuration file.
-- Note: the persistance mechanism purely servers as a proof of concept. no real malware was created.
+- Note: the persistance mechanism purely servers as a proof of concept. No real malware was created.
   <img width="1918" height="982" alt="malicious behavior" src="https://github.com/user-attachments/assets/93aaedf9-d92b-4b50-af9e-b04b79e6a957" />
  
 - From there, I ran an interrogation on the client to get some basic system information, then proceeded onto further analysis.
