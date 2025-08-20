@@ -9,7 +9,7 @@ a simulated malicious persistence attempt.
 - Set up and configured my lab environment with Velociraptor's Client-Server deployment.
 - Hosted Velociraptor on my Ubuntu server.
 - Deployed the client on a Kali Linux VM and connected it to the server.
-- I captured screenshots of the Velociraptor admin panel and conneced client list to show the baseline state before malicious activity.
+- I captured screenshots of the Velociraptor admin panel and connected client list to show the baseline state before malicious activity.
 ![admindashboard](https://github.com/user-attachments/assets/50cd2fac-881e-423a-9e49-6e91e9893e24)
 ![clientsearch](https://github.com/user-attachments/assets/574f0ce8-91d6-446c-a205-a28fefa94c10)
 
@@ -20,7 +20,7 @@ a simulated malicious persistence attempt.
 
 ## 🔎 Detection  
 - To simulate an attack, I used the [MITRE ATT&CK technique **T1546.004**](https://attack.mitre.org/techniques/T1546/004/) – persistence through malicious shell scripts.  
-- Created a persistence mechanism by modifying the client;s shell configuration file.
+- Created a persistence mechanism by modifying the client's shell configuration file.
 - Note: the persistance mechanism purely servers as a proof of concept. No real malware was created.
   <img width="1918" height="982" alt="malicious behavior" src="https://github.com/user-attachments/assets/93aaedf9-d92b-4b50-af9e-b04b79e6a957" />
  
